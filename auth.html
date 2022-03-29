@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>WeBlog - 优质博客认证中心</title>
+    <meta name="keywords" content="WeBlog,笔记,博客,个人网站,网站认证" />
+    <meta name="description" content="WeBlog是一个专注个人博客导航,为独立个人博客提供优质博客认证官网!" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+
+<body>
+   <header class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                <a class="navbar-brand" href="/index.html">
+                    <img alt="logo" src="/images/weblog.png" height="100%">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/index.html">首页<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="/auth.html">认证展示</a></li>
+                    <li><a href="/list.html">成员列表</a></li>
+                    <li><a href="/about.html">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </header> 
+        <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="active item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="carousel-content">
+            <p class="name">认证展示</p>
+            <p class="slogan">经WeBlog审核后会生成独立认证页面<br/>样式可查看下方演示</p>
+            <a href="" onclick="myFunction(this)"><button type="button" class="btn btn-info">随机查看验证</button></a>
+        </div>
+        <div class="carousel-wave"></div>
+        <div class="carousel-wave2"></div>
+    </div>
+<div class ="container">
+<!--<iframe src="https://weblog.net.cn/auth/test.html" frameborder="0" width="100%" height="1200px"></iframe>-->
+<img src="/images/test.png"/ width="100%">
+    </div>
+    </br>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="footer-link">
+                        <span><a href="/about.html">关于我们</a></span> |
+                        <span><a href="https://jq.qq.com/?_wv=1027&k=BkVMOzgx">加入我们</a></span> |
+                        <span><a href="/list.html">成员列表</a></span> |
+                        <span><a href="https://www.wjx.top/vj/hJSLnqV.aspx">申请认证</a></span>
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="footer-copyright">Copyright © 2022 WeBlog. <a href="https://beian.miit.gov.cn/" target="_blank">陇ICP备2021003459号</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="gotop"><span class="qrcode"></span>
+        <a class="anchor" href="javascript:void(0);"></a>
+    </div>
+
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollto.min.js"></script>
+    <script src="js/index_ef441bd.js"></script>
+<!--    随机数字生成-->
+    <script>
+    function myFunction(e) {
+        var number = randomNum(1, 3);
+        e.href = "https://weblog.net.cn/auth/" + number + ".html";
+    };
+
+    function randomNum(maxNum, minNum, decimalNum) {
+        var max = 0,
+            min = 0;
+        minNum <= maxNum ? (min = minNum, max = maxNum) : (min = maxNum, max = minNum);
+        switch (arguments.length) {
+            case 1:
+                return Math.floor(Math.random() * (max + 1));
+                break;
+            case 2:
+                return Math.floor(Math.random() * (max - min + 1) + min);
+                break;
+            case 3:
+                return (Math.random() * (max - min) + min).toFixed(decimalNum);
+                break;
+            default:
+                return Math.random();
+                break;
+        }
+    }
+    </script>
+</body>
+
+</html>
