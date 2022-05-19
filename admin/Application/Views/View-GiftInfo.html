@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>详细信息</title>
+	<meta name="keywords" content="详细信息" />
+	<meta name="description" content="详细信息" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="" />
+	<style type="text/css">
+	</style>
+	<script type="text/javascript"></script>
+</head>
+<body>
+	<div style="position: absolute;left: 50%;transform:translateX(-50%)" >
+		<div style="font-size:23px;font-weight:bold;white-space:nowrap">关于编号<font color=red><?php echo $data['id'] ?></font>的申请信息如下：</div>
+      	<hr />
+		<nobr />博客名称：<?php echo $data['message_title'] ?>
+		<br/>
+		<br/>
+		<nobr />网站地址：<?php echo $data['message_url'] ?>
+		<br/>
+		<br/>
+		<nobr />博客头像：<?php echo $data['message_logo'] ?>
+		<br/>
+		<br/>
+		<nobr />联系邮箱：<?php echo $data['message_email'] ?>
+		<br/>
+		<br/>
+		<nobr />申请时间：<?php echo $data['times'] ?>
+		<hr />
+		<a href='?'>返回</a>
+	</div>
+</body>
+</html>

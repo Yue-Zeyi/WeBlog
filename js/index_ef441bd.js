@@ -26,7 +26,7 @@ var browserUserAgent = navigator.userAgent.toLowerCase(),
             var n = e("header.navbar"),
                 t = e(".gotop");
             window.pageYOffset > 450 ? n.removeClass("navbar-bg") : n.addClass("navbar-bg"), window.pageYOffset < 600 ? t.fadeOut() : t.fadeIn(), e(window).scroll(function() { window.pageYOffset > 450 ? n.removeClass("navbar-bg") : n.addClass("navbar-bg"), window.pageYOffset < 600 ? t.fadeOut() : t.fadeIn() }), t.on("click", function() { e(window).scrollTo(0, 800) })
-        } else e("body").addClass("os-mobile"), "ios" == r ? (a.text("立即加入"), a.attr("href", "https://jq.qq.com/?_wv=1027&k=BkVMOzgx")) : (a.text("立即加入"), urlArgs = getUrlArgObject("search"), urlArgs.qd && "weixin" == urlArgs.qd ? a.attr("href", "https://jq.qq.com/?_wv=1027&k=BkVMOzgx") : a.attr("href", "https://jq.qq.com/?_wv=1027&k=BkVMOzgx"));
+        } else e("body").addClass("os-mobile"), "ios" == r ? (a.text("立即加入"), a.attr("href", "join.html")) : (a.text("立即加入"), urlArgs = getUrlArgObject("search"), urlArgs.qd && "weixin" == urlArgs.qd ? a.attr("href", "join.html") : a.attr("href", "join.html"));
         var s = isWeixinWrapper ? r + "-weixin" : r;
         a.on("click", function() { return _hmt.push(["_trackEvent", "home-banner-getstart", "click", s]), isWeixinWrapper && "ios" != r ? (e("#pop-weixin").fadeIn(), e("body").addClass("disable-scroll"), !1) : void 0 }), e("#pop-weixin").on("click", function() { e(this).fadeOut(), e("body").removeClass("disable-scroll") })
     })

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WeBlog博客认证申请收录信息列表</title>
+    <meta name="keywords" content="WeBlog博客认证申请收录信息列表" />
+    <meta name="description" content="WeBlog博客认证申请收录信息列表" />
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+        table {
+        margin: 0 auto;
+
+        border-collapse: collapse;
+        }
+
+        table caption {
+
+            font-weight: bold;
+
+            margin: 1px 0;
+        }
+
+        th,
+        td {
+
+            border: 1px solid #999;
+
+            text-align: center;
+
+            padding: 10px 10px;
+        }
+
+        table thead tr {
+
+            background-color: #008c8c;
+
+            color: #fff;
+        }
+
+        table tbody tr:nth-child(odd) {
+
+            background-color: #eee;
+        }
+
+        table tbody tr:hover {
+
+            background-color: #ccc;
+        }
+
+        table tfoot tr td {
+
+            text-align: center;
+
+            padding-right: 20px;
+        }
+
+        .cz a {
+            display: inline-block;
+            text-decoration: none;
+            width: 50px;
+            height: 22px;
+            background-color: #5cb85c;
+            text-align: center;
+            line-height: 22px;
+            color: white;
+            border-radius: 2px;
+            font-size: 12px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #5cb85c;
+        }
+
+        .cz a:hover {
+            display: inline-block;
+            text-decoration: none;
+            width: 50px;
+            height: 22px;
+            background-color: #7ad67a;
+            text-align: center;
+            line-height: 22px;
+            color: white;
+            border-radius: 2px;
+            font-size: 12px;
+
+        }
+    </style>
+    <script type="text/javascript"></script>
+</head>
+<body>
+
+<h1 style="text-align: center;">Weblog博客认证申请收录列表</h1>
+<br />
+<div>
+	<table border='1'> 
+	<thead>
+	    <tr class="tr1">
+                <th>编号</th>
+                <th>博客名称</th>
+                <th>博客网址</th>
+                <th>博客头像</th>
+                <th>联系邮箱</th>
+                <th>提交时间</th>
+                <th>数据管理</th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php
+		foreach( $data1 as  $key => $rec )
+		{
+		?>
+		<tr>
+			<td><?php echo $rec['id']; ?></td>
+			<td><?php echo $rec['message_title']; ?></td>
+			<td><a href="<?php echo $rec['message_url']; ?>" target="_blank"><?php echo $rec['message_url']; ?></a></td>
+			<td><?php echo $rec['message_logo']; ?></td>
+			<td><?php echo $rec['message_email']; ?></td>
+			<td><?php echo $rec['times']; ?></td>
+			<td class="cz">
+				<a href='?act=del&id=<?php echo $rec['id']; ?>' onclick="javascript:return del();">删除</a>
+				<a href='?act=detail&id=<?php echo $rec['id']; ?>' >详细</a>
+			</td>
+		</tr>
+		<?php
+		}
+		?>
+		</tbody>
+	</table>
+	<br/>
+	<p style="text-align:center">当前已提交博客申请总数：<?php echo $data2;?></p>
+	</div>
+</body>
+</html>
+
+<script src="https://cdn.zeyiwl.cn/jQuery/jquery-1.9.1.min.js"></script>	
+<script>
+  function del() {
+        var msg = "您真的确定要删除吗？\n\n确认无误请点击确定删除！";
+        if (confirm(msg)==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+	$(function(){
+	 setInterval(aa,1000);
+	 function aa(){
+	$(".fr").load(location.href+" .fr");
+	 }
+	})
+</script>

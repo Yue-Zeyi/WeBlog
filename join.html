@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblog中文博客认证收录提交</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .title_a {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .title_a img {
+            width: 250px;
+            padding-top: 20px;
+        }
+
+        .code {
+            display: inline-block;
+            background: url(code_bg.jpg);
+            font-family: Arial;
+            font-style: italic;
+            color: blue;
+            font-size: 20px;
+            border: 0;
+            padding: 5px 10px;
+            letter-spacing: 3px;
+            font-weight: bolder;
+            cursor: pointer;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .code_a {
+            font-size: 10px;
+            position: absolute;
+            bottom: 0
+        }
+
+        .contact {
+            margin: 0px auto;
+            width: 50%;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+
+            .contact {
+
+                width: 88%;
+            }
+        }
+    </style>
+
+    <script>
+        var code;
+        function createCode() {
+            code = "";
+            var codeLength = 6; //验证码的长度
+            var checkCode = document.getElementById("checkCode");
+            var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
+            for (var i = 0; i < codeLength; i++) {
+                var charNum = Math.floor(Math.random() * 52);
+                code += codeChars[charNum];
+            }
+            if (checkCode) {
+                checkCode.className = "code";
+                checkCode.innerHTML = code;
+            }
+        }
+        var reg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;
+        var emailReg = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
+        function CheckPost() {
+            if (myform.message_title.value.length == "" || myform.message_title.value.length > 6) {
+                alert("请输入正确的博客名称！");
+                myform.message_title.focus();
+                return false;
+            }
+            if (!reg.test(myform.message_url.value)) {
+                alert("请输入正确的站点网址！");
+                myform.message_url.focus();
+                return false;
+            }
+            if (myform.message_logo.value == "") {
+                alert("请输入正确的头像地址！");
+                myform.message_logo.focus();
+                return false;
+            }
+            if (!emailReg.test(myform.message_email.value)) {
+                alert("请输入正确的邮箱地址！");
+                myform.message_email.focus();
+                return false;
+            }
+            if (myform.inputCode.value.toUpperCase() != code.toUpperCase()) {
+                alert("请正确输入验证码！");
+                myform.inputCode.focus();
+                return false;
+            }
+            if (myform.option.checked == false) {
+                alert("请同意相关条约后才可提交！");
+                myform.option.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body onload="createCode() ">
+    <div class="title_a">
+        <a href="index.html">
+            <img src="https://weblog.net.cn/images/weblog.png" alt="WeBlog" /></a>
+    </div>
+    <div class="contact">
+        <form action="increaseData.php" method="post" name="myform" onsubmit="return CheckPost();">
+            <div>
+                <label for="fname">博客名称：</label>
+                <input type="text" name="message_title" placeholder="博客名称（六个字以内）">
+            </div>
+            <div>
+                <label for="article_html_class">网站地址：</label>
+                <input type="text" id="url" name="message_url" placeholder="站点网址（以http/https开头）">
+            </div>
+            <div>
+                <label for="article">博客头像：</label>
+                <input type="text" name="message_logo" placeholder="URL格式的图片地址（大小1:1）">
+            </div>
+            <div>
+                <label for="article">联系邮箱：</label>
+                <input type="text" name="message_email" placeholder="邮箱地址（用于接受成功收录通知）">
+            </div>
+            <div>
+                <div style="position:relative;">
+                    <div class="code" id="checkCode" onclick="createCode()"></div>
+                    <a class="code_a" href="#" onclick="createCode()">看不清换一张</a>
+                </div>
+                <input type="text" id="inputCode" placeholder="请输入验证码" />
+            </div>
+            <div class="form-check" style="text-align:center;">
+                <input type="checkbox" class="form-check-input" id="check2" name="option" value="something">
+                <label class="form-check-label" for="check2" style="padding-top:20px;font-weight:400;">我已完全理解并同意遵守<a
+                        href="treaty.html" target="_blank">【WeBlog申请条约】</a></label>
+            </div>
+            <div>
+                <input type="submit" value="提交收录" id="submit">
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="footer-link">
+                        <span><a href="about.html">认证首页</a></span> |
+                        <span><a href="https://jq.qq.com/?_wv=1027&k=BkVMOzgx">博主交流</a></span> |
+                        <span><a href="about.html">关于我们</a></span> |
+                        <span><a href="list.html">博主列表</a></span>
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="footer-copyright">Copyright © 2022 WeBlog. <a href="https://beian.miit.gov.cn/"
+                            target="_blank">陇ICP备2021003459号</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
